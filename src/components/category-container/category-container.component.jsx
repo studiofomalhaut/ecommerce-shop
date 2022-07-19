@@ -6,27 +6,27 @@ const CategoryContainer = () => {
     const categories = [
         {
           "id": 1,
-          "title": "hats",
+          "title": "HATS",
           "imageUrl": "https://i.ibb.co/cvpntL1/hats.png"
         },
         {
           "id": 2,
-          "title": "jackets",
+          "title": "JACKETS",
           "imageUrl": "https://i.ibb.co/px2tCc3/jackets.png"
         },
         {
           "id": 3,
-          "title": "sneakers",
+          "title": "SNEAKERS",
           "imageUrl": "https://i.ibb.co/0jqHpnp/sneakers.png"
         },
         {
           "id": 4,
-          "title": "womens",
+          "title": "WOMENS",
           "imageUrl": "https://i.ibb.co/GCCdy8t/womens.png"
         },
         {
           "id": 5,
-          "title": "mens",
+          "title": "MENS",
           "imageUrl": "https://i.ibb.co/R70vBrQ/men.png"
         }
       ]
@@ -36,7 +36,7 @@ const CategoryContainer = () => {
             {categories.map((category) => (
             
             <CategoryItem key={category.id}
-                        category={category}
+                          category={category}
                         />
             
             ))}  
