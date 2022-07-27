@@ -10,7 +10,7 @@ const Nav = () =>{
                 <a className="logo-container" href="/">
                     <CrwnLogo className="logo" />
                 </a>
-            <div clasName="nav-links-container">
+            <div className="nav-links-container">
                 <a className='nav-link' href='/shop'>SHOP</a>
                 <a className='nav-link' href='/contact'>CONTACT</a>
                 <a className='nav-link' href='/signin'>SIGN IN</a>
