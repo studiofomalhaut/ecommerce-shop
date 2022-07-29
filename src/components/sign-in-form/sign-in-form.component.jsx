@@ -9,6 +9,7 @@ import { signInWithGooglePopUp,
 import FormInput from '../form-input/form-input.component'
 import Button from '../button/button.component'
 
+
 const defaultSignInFormFields = {
     email: '',
     password:'',
@@ -18,24 +19,28 @@ const SignInForm = () => {
 
         const [signInFormFields, setSignInFormFields] = useState(defaultSignInFormFields);
         const {email, password} = signInFormFields;
-        console.log(signInFormFields)
     
         const resetSignInFields = () => {
             setSignInFormFields(defaultSignInFormFields);
         }
 
 
-        const signInWithGoogle = async() => {
-            const {user} = await signInWithGooglePopUp();
-            const userDocRef = await createUserDocumentFromAuth(user);
+        // const signInWithGoogle = async() => {
+        //     const {user} = await signInWithGooglePopUp();
+        //     const userDocRef = await createUserDocumentFromAuth(user);
+        // }
+
+        // No longer need destructuring of user
+        const signInWithGoogle = async() =>{
+            await signInWithGooglePopUp()
         }
 
 
         const handleFormSubmit = async(event) =>{
             event.preventDefault();     
             try{
-                const response = await signInAuthUserWithEmailAndPassword(email,password)
-                console.log(response)
+                const {user} = await signInAuthUserWithEmailAndPassword(email,password)
+                console.log({user})
                 resetSignInFields()
             }catch (error) {
                 switch(error.code){
@@ -75,7 +80,7 @@ const SignInForm = () => {
                         name="password"
                         value={password}/>
             <div className="buttons-container">
-                <Button type="submit">Sign In</Button>
+                <Button type="submit" onClick>Sign In</Button>
                 <Button buttonType='google' onClick={signInWithGoogle}>Sing in With Google</Button>
             </div>
             </form>
